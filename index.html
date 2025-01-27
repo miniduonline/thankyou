@@ -1,25 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Thank You</title>
-  <link rel="stylesheet" href="thank-you.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="thank-you-chat-bubble-yellow-outline-17294.svg" type="image/svg">
 </head>
 <body>
-  <div class="thank-you-container">
-    <div class="thank-you-content">
-      <h1>Thank You!</h1>
+    <div class="thank-you-container">
+        <!-- Floating Elements -->
+        <div class="floating-elements">
+            <div class="floating-element" style="width: 50px; height: 50px; top: 20%; left: 10%;"></div>
+            <div class="floating-element" style="width: 30px; height: 30px; top: 60%; left: 80%;"></div>
+            <div class="floating-element" style="width: 40px; height: 40px; top: 80%; left: 30%;"></div>
+        </div>
+
+        <!-- Success Icon -->
+        <i class="fas fa-check-circle success-icon"></i>
+
+      <!-- Thank You Message -->
+      <h1>Thank You, <span id="user-name">User</span>!</h1>
       <p>We appreciate your feedback. Our team will review the issue you reported and get back to you shortly.</p>
-      <p>If you have any more questions, feel free to <a href="mailto:hello@minidushashimal.com">contact us</a>.</p>
-      <button onclick="goHome()">Go Back to Home</button>
+      <p>If you have any more questions, feel free to <a href="mailto:hello@minidushashimal.com" class="contact-link">contact us</a>.</p>
+
+        <!-- Social Media Links -->
+        <div class="social-links">
+            <a href="https://x.com/miniduonline" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://facebook.com/miniduonline" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://linkedin.com/in/miniduonline" target="_blank"><i class="fab fa-linkedin"></i></a>
+        </div>
+
+        <!-- Buttons -->
+        <button class="btn-home" onclick="goHome()">
+            <i class="fas fa-home"></i>
+            Go Back to Home
+        </button>
+        
     </div>
-  </div>
-  
-  <script>
-    function goHome() {
-      window.location.href = "https://ebill.minidushashimal.com"; // Redirect to your homepage
-    }
-  </script>
+
+    <!-- Confetti Animation -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <script>
+        // Confetti Animation
+        confetti({
+            particleCount: 100,
+            spread: 70,
+            origin: { y: 0.6 }
+        });
+
+        // Go Home Function
+        function goHome() {
+            window.location.href = "https://ebill.minidushashimal.com";
+        }
+
+        // Personalized User Name
+        const urlParams = new URLSearchParams(window.location.search);
+        const userName = urlParams.get('name') || 'User';
+        document.getElementById('user-name').textContent = userName;
+    </script>
 </body>
 </html>
+
+
+
+
+
